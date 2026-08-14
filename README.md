@@ -5,10 +5,10 @@
 ### Custom machines · tuned firmware · documented builds
 
 <p>
-  <img alt="Klipper" src="https://img.shields.io/badge/firmware-Klipper-111111?style=for-the-badge&logoColor=white">
-  <img alt="OrcaSlicer" src="https://img.shields.io/badge/slicer-OrcaSlicer-3f3f46?style=for-the-badge&logoColor=white">
-  <img alt="Featured builds" src="https://img.shields.io/badge/featured_builds-3-6b7280?style=for-the-badge&logoColor=white">
-  <a href="LICENSE"><img alt="CC BY 4.0 license" src="https://img.shields.io/badge/license-CC_BY_4.0-111111?style=for-the-badge&logoColor=white"></a>
+  <img alt="Klipper" src="https://img.shields.io/badge/firmware-Klipper-E74C3C?style=for-the-badge&logoColor=white&labelColor=A93226">
+  <img alt="OrcaSlicer" src="https://img.shields.io/badge/slicer-OrcaSlicer-00AEEF?style=for-the-badge&logoColor=white&labelColor=0369A1">
+  <img alt="Featured builds" src="https://img.shields.io/badge/featured_builds-3-8B5CF6?style=for-the-badge&logoColor=white&labelColor=6D28D9">
+  <a href="LICENSE"><img alt="CC BY 4.0 license" src="https://img.shields.io/badge/license-CC_BY_4.0-F59E0B?style=for-the-badge&logoColor=white&labelColor=B45309"></a>
 </p>
 
 Firmware configurations, slicer profiles, build history, and original photography from a collection of heavily modified and custom-built 3D printers.
