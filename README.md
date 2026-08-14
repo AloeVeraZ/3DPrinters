@@ -5,16 +5,10 @@
 ### Custom machines · tuned firmware · documented builds
 
 <p>
-  <a href="ZeroG/"><img src="ZeroG/images/cover.jpg" alt="ZeroG Hydra" width="32%"></a>
-  <a href="Delta/"><img src="Delta/images/cover-front.jpg" alt="Delta 3D Printer" width="32%"></a>
-  <a href="Voron%20V0.2990/"><img src="Voron%20V0.2990/images/cover.jpg" alt="Voron V0.2990" width="32%"></a>
-</p>
-
-<p>
-  <img alt="Klipper" src="https://img.shields.io/badge/firmware-Klipper-e74c3c?style=for-the-badge">
-  <img alt="OrcaSlicer" src="https://img.shields.io/badge/slicer-OrcaSlicer-00aeef?style=for-the-badge">
-  <img alt="Featured builds" src="https://img.shields.io/badge/featured_builds-3-6f42c1?style=for-the-badge">
-  <a href="LICENSE"><img alt="CC BY 4.0 license" src="https://img.shields.io/badge/license-CC_BY_4.0-f9a825?style=for-the-badge"></a>
+  <img alt="Klipper" src="https://img.shields.io/badge/firmware-Klipper-111111?style=for-the-badge&logoColor=white">
+  <img alt="OrcaSlicer" src="https://img.shields.io/badge/slicer-OrcaSlicer-3f3f46?style=for-the-badge&logoColor=white">
+  <img alt="Featured builds" src="https://img.shields.io/badge/featured_builds-3-6b7280?style=for-the-badge&logoColor=white">
+  <a href="LICENSE"><img alt="CC BY 4.0 license" src="https://img.shields.io/badge/license-CC_BY_4.0-111111?style=for-the-badge&logoColor=white"></a>
 </p>
 
 Firmware configurations, slicer profiles, build history, and original photography from a collection of heavily modified and custom-built 3D printers.
@@ -22,6 +16,12 @@ Firmware configurations, slicer profiles, build history, and original photograph
 **[Explore the builds](#featured-machines) · [Browse every configuration](#configuration-library) · [Read the license](#license--attribution)**
 
 </div>
+
+<p align="center">
+  <a href="ZeroG/"><img src="ZeroG/images/cover.jpg" alt="ZeroG Hydra" width="32%"></a>
+  <a href="Delta/"><img src="Delta/images/cover-front.jpg" alt="Delta 3D Printer" width="32%"></a>
+  <a href="Voron%20V0.2990/"><img src="Voron%20V0.2990/images/cover.jpg" alt="Voron V0.2990" width="32%"></a>
+</p>
 
 ---
 
@@ -99,7 +99,7 @@ Every machine keeps firmware, macros, board variants, and slicer profiles inside
 | **[Delta 3D Printer](Delta/)** | Four printer revisions covering TMC2209 and closed-loop motor setups, plus sample macros | 5 |
 | **[Voron V0.2990](Voron%20V0.2990/)** | Fly Gemini V3 and BTT M8P configurations, modular Klipper files, and OrcaSlicer profile | 17 |
 | [SnakeOil KP3S](SnakeOil-Kp3s/code/) | Modular Klipper configuration for motion, extrusion, probing, fans, and thermistors | 9 |
-| [CitytechClay](CitytechClay/code/) | Clay-printer configuration, extrusion, pump, macro, and timelapse files | 5 |
+| CitytechClay | Clay-printer configuration, extrusion, pump, macro, and timelapse files; archive not included in this checkout | 5 |
 | [RatRig V-Core 3 500](RatRig%20V-Core%203%20500/code/) | Printer configuration and OrcaSlicer profile | 2 |
 | [Justin Voron 2.4](Justin%20Voron%202.4/code/) | Stock and modified printer configurations | 2 |
 | [Testbench](testbench/code/) | Minimal development configuration | 1 |
