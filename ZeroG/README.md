@@ -1,6 +1,6 @@
 # ZeroG Hydra
 
-![ZeroG Hydra](images/cover.jpg)
+<img src="images/cover.jpg" alt="ZeroG Hydra">
 
 [Browse the printer configuration and OrcaSlicer profile](code/)
 
@@ -14,7 +14,7 @@ After building two 3D printers from raw materials and using countless off-the-sh
 
 Since reliability and speed are my top priority, I decided to use a CoreXY motion system. This motion system uses two motors to move the X and Y axes together. This allows for faster print speeds and precise movement when the belts are tensioned properly. Unlike most motion systems, the motors are always stationary, leading to less mass along the Y axis. Because of this, CoreXY printers can move much faster than many other motion systems.
 
-![ZeroG Hydra CoreXY assembly](images/corexy-assembly.jpg)
+<img src="images/corexy-assembly.jpg" alt="ZeroG Hydra CoreXY assembly">
 
 ## "Floating" bed assembly
 

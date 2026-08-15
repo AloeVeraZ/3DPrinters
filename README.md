@@ -8,7 +8,7 @@
   <img alt="Klipper" src="https://img.shields.io/badge/firmware-Klipper-E74C3C?style=for-the-badge&logoColor=white&labelColor=A93226">
   <img alt="OrcaSlicer" src="https://img.shields.io/badge/slicer-OrcaSlicer-00AEEF?style=for-the-badge&logoColor=white&labelColor=0369A1">
   <img alt="Featured builds" src="https://img.shields.io/badge/featured_builds-3-8B5CF6?style=for-the-badge&logoColor=white&labelColor=6D28D9">
-  <a href="LICENSE"><img alt="CC BY 4.0 license" src="https://img.shields.io/badge/license-CC_BY_4.0-F59E0B?style=for-the-badge&logoColor=white&labelColor=B45309"></a>
+  <img alt="CC BY 4.0 license" src="https://img.shields.io/badge/license-CC_BY_4.0-F59E0B?style=for-the-badge&logoColor=white&labelColor=B45309">
 </p>
 
 Firmware configurations, slicer profiles, build history, and original photography from a collection of heavily modified and custom-built 3D printers.
@@ -18,9 +18,9 @@ Firmware configurations, slicer profiles, build history, and original photograph
 </div>
 
 <p align="center">
-  <a href="ZeroG/"><img src="ZeroG/images/cover.jpg" alt="ZeroG Hydra" width="32%"></a>
-  <a href="Delta/"><img src="Delta/images/cover-front.jpg" alt="Delta 3D Printer" width="32%"></a>
-  <a href="Voron%20V0.2990/"><img src="Voron%20V0.2990/images/cover.jpg" alt="Voron V0.2990" width="32%"></a>
+  <img src="ZeroG/images/cover.jpg" alt="ZeroG Hydra" width="32%">
+  <img src="Delta/images/cover-front.jpg" alt="Delta 3D Printer" width="32%">
+  <img src="Voron%20V0.2990/images/cover.jpg" alt="Voron V0.2990" width="32%">
 </p>
 
 ---
@@ -30,7 +30,7 @@ Firmware configurations, slicer profiles, build history, and original photograph
 <table>
   <tr>
     <td width="42%">
-      <a href="ZeroG/"><img src="ZeroG/images/cover.jpg" alt="ZeroG Hydra"></a>
+      <img src="ZeroG/images/cover.jpg" alt="ZeroG Hydra">
     </td>
     <td width="58%" valign="top">
       <h3>ZeroG Hydra</h3>
@@ -62,7 +62,7 @@ Firmware configurations, slicer profiles, build history, and original photograph
       <p><strong><a href="Delta/">Build story + gallery →</a></strong> &nbsp; <strong><a href="Delta/code/">Configuration files →</a></strong></p>
     </td>
     <td width="42%">
-      <a href="Delta/"><img src="Delta/images/cover-front.jpg" alt="Delta 3D Printer"></a>
+      <img src="Delta/images/cover-front.jpg" alt="Delta 3D Printer">
     </td>
   </tr>
 </table>
@@ -70,7 +70,7 @@ Firmware configurations, slicer profiles, build history, and original photograph
 <table>
   <tr>
     <td width="42%">
-      <a href="Voron%20V0.2990/"><img src="Voron%20V0.2990/images/cover.jpg" alt="Voron V0.2990"></a>
+      <img src="Voron%20V0.2990/images/cover.jpg" alt="Voron V0.2990">
     </td>
     <td width="58%" valign="top">
       <h3>Voron V0.2990</h3>
