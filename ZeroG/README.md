@@ -1,56 +1,100 @@
+<div align="center">
+
 # ZeroG Hydra
 
-<img src="images/cover.jpg" alt="ZeroG Hydra">
+### Large-format CoreXY platform with 3-point automated bed tramming and Beacon eddy-current probing
 
-[Browse the printer configuration and OrcaSlicer profile](code/)
+[![Status](https://img.shields.io/badge/Status-Complete-22c55e?style=flat-square)](#project-overview)
+[![Firmware](https://img.shields.io/badge/Firmware-Klipper-6f42c1?style=flat-square&logo=klipper&logoColor=white)](code/)
+[![Slicer](https://img.shields.io/badge/Slicer-OrcaSlicer-0078d4?style=flat-square)](code/)
+[![Kinematics](https://img.shields.io/badge/Kinematics-CoreXY-0a7f5a?style=flat-square)](#corexy-motion-system)
+[![Parent](https://img.shields.io/badge/Lab-3D_Printer_Lab-111111?style=flat-square)](../)
 
-## Overview
+<picture>
+  <img src="images/cover.jpg" alt="ZeroG Hydra" width="820" draggable="false">
+</picture>
 
-After building two 3D printers from raw materials and using countless off-the-shelf options, I noticed I needed a reliable machine with a big build volume. When building this machine I did not want to focus on speed. The other machines I have built are extremely fast but cannot print quality parts. This machine was built to make quality parts instead. I can achieve this through the use of many sensors within the toolhead. The hotend and extruder were picked due to their ability to make quality prints.
+A custom large-format Mercury/Hydra CoreXY machine engineered for dimensional consistency, sensor-rich toolhead monitoring, and automated bed calibration.
 
-**Status:** This project is finished.
+[Project Overview](#project-overview) | [Motion & Bed Tramming](#corexy-motion-system) | [Filametrix Toolhead](#modernized-toolhead) | [Sensor Stack](#toolhead-sensors) | [Configurations](code/) | [Back to Lab](../)
 
-## CoreXY motion system
+</div>
 
-Since reliability and speed are my top priority, I decided to use a CoreXY motion system. This motion system uses two motors to move the X and Y axes together. This allows for faster print speeds and precise movement when the belts are tensioned properly. Unlike most motion systems, the motors are always stationary, leading to less mass along the Y axis. Because of this, CoreXY printers can move much faster than many other motion systems.
+---
 
-<img src="images/corexy-assembly.jpg" alt="ZeroG Hydra CoreXY assembly">
+## Project Overview
 
-## "Floating" bed assembly
+Unlike speed-focused builds that compromise surface finish, the ZeroG Hydra was built as a reliable manufacturing workhorse. Designed around high-accuracy sensors and a rigid CoreXY frame, the printer achieves precise first-layer calibration across a large build area.
 
-To allow this printer to be mostly automated, the bed needs to pivot along three points. The three points are independent, which allows the firmware to zero all three sides automatically. This is essential for allowing the printer to perform bed leveling and tramming on its own.
+| Machine Specification | Configuration & Details |
+| --- | --- |
+| Kinematic architecture | CoreXY with stationary dual-stepper drive |
+| Bed leveling system | True 3-point kinematic floating bed with independent Z steppers |
+| Probing & resonance | Beacon eddy-current surface sensor + integrated accelerometer |
+| Extruder & hotend | Voron Clockwork 2 geared extruder + Phaetus Rapido high-flow hotend |
+| Toolhead platform | Modified Filametrix with dual optical/mechanical filament sensors & cutter |
+| Electronics enclosure | Ventilated under-bed bay with 24 V PSU, USB hub, and 110 V SSR |
+| Host & firmware | Klipper on Linux with adaptive bed meshing and RGB status feedback |
 
-## Electronics bay
+## CoreXY Motion System
 
-The electronics bay is directly below the printer's build area. It holds a USB splitter, mainboard, power supply, and solid-state relay (SSR). All of the electronics that make the printer work are located within the ventilated bay.
+The CoreXY kinematic layout keeps both primary stepper motors stationary on the rear frame, significantly reducing moving carriage inertia along the Y axis. Belt tensioning paths are symmetrically balanced to ensure orthogonal travel across the entire envelope.
 
-The mainboard controls the printer by communicating with its sensors, heating elements, USB splitter, and SSR. The SSR is responsible for bed heating and allows the bed to run on 110 volts instead of the standard 24 volts output by the mainboard. The USB splitter lets the printer communicate with the bed-leveling sensor PCB. The power supply is a standard 24 V, 350 W Ender 3 PSU. The printer runs Klipper on Linux.
+<div align="center">
+  <img src="images/corexy-assembly.jpg" alt="ZeroG Hydra CoreXY assembly" width="700">
+</div>
 
-<p>
-  <img src="images/electronics-bay-left.jpg" alt="Left side of the ZeroG electronics bay" width="49%">
-  <img src="images/electronics-bay-right.jpg" alt="Right side of the ZeroG electronics bay" width="49%">
-</p>
+## 3-Point Floating Bed Tramming
 
-## Modernized toolhead
+The build plate floats on three independent spherical-seat pivots driven by dedicated Z steppers. On boot, Klipper probes the three kinematic points with the Beacon sensor, automatically leveling the physical plane of the bed relative to the XY gantry before generating an adaptive high-resolution mesh.
 
-The toolhead is based on [Filametrix](https://github.com/sorted01/Filametrix). It has two filament sensors and a knife for filament monitoring and cutting, an eddy-current bed-leveling system, LED lights, and a touchscreen, along with the standard blower fans, hotend, and extruder.
+## Electronics Bay
 
-The filament sensors allow the printer to know whether filament is passing through the toolhead and where it is inside the assembly. The bed-leveling sensor lets the printer scan the bed and use nozzle probing for a precise Z offset. The LEDs and touchscreen display messages about print progress. All of these features improve ease of use. The hotend is a Phaetus Rapido and the extruder is a [Clockwork 2](https://github.com/VoronDesign/Voron-Stealthburner/tree/main).
+Located directly beneath the heated bed, the ventilated lower compartment houses the primary computing and power distribution hardware.
 
-<p>
-  <img src="images/toolhead-photo.jpg" alt="ZeroG toolhead" width="49%">
-  <img src="images/toolhead-render.jpg" alt="ZeroG toolhead CAD render" width="49%">
-</p>
+<div align="center">
 
-## Toolhead sensors
+| Left Electronics Bay | Right Electronics Bay |
+| :---: | :---: |
+| <img src="images/electronics-bay-left.jpg" alt="Left side of the ZeroG electronics bay" width="100%"> | <img src="images/electronics-bay-right.jpg" alt="Right side of the ZeroG electronics bay" width="100%"> |
 
-The printhead uses two filament-monitoring sensors, consisting of limit switches, and a bed-leveling sensor. The two limit switches work together to ensure that filament is being fed into the hotend and has not snapped.
+</div>
 
-The first sensor is at the top of the extruder and is used as a general runout sensor. It is configured to pause prints whenever it does not detect filament. It can also be configured to detect whether filament is attempting to feed into the extruder, enabling multi-material printing. The second sensor is below the extruder and filament cutter. It is not used during normal printing, but is enabled for multi-material printing. It lets the printer confirm that filament was cut successfully: this sensor will still detect filament while the upper sensor will not once the filament is fully retracted.
+- **110 V AC Bed Power:** An external solid-state relay (SSR) powers the high-wattage silicone bed heater directly from AC mains for rapid warm-up times.
+- **Dedicated Sensor USB Hub:** Isolates CAN/USB communication from the Beacon probe and auxiliary toolhead controllers.
 
-The other sensor is a Beacon probe. It is used primarily for bed leveling but also doubles as an accelerometer. The sensor uses magnetic fields and eddy currents to detect its distance from the bed. This produces fast, accurate bed meshes. It also allows the nozzle to establish the printer's zero position for the first layer and when locating the three points on the bed.
+## Modernized Toolhead
 
-<p>
-  <img src="images/toolhead-sensor-render.jpg" alt="ZeroG toolhead sensor render" width="49%">
-  <img src="images/toolhead-sensor-photo.jpg" alt="ZeroG toolhead sensor" width="49%">
-</p>
+The toolhead is based on the [Filametrix](https://github.com/sorted01/Filametrix) platform, integrating an mechanical filament cutter, dual runout sensors, Beacon surface probe, RGB lighting, and an integrated status display.
+
+<div align="center">
+
+| Toolhead Physical Build | Toolhead CAD Model |
+| :---: | :---: |
+| <img src="images/toolhead-photo.jpg" alt="ZeroG toolhead" width="100%"> | <img src="images/toolhead-render.jpg" alt="ZeroG toolhead CAD render" width="100%"> |
+
+</div>
+
+## Toolhead Sensors
+
+| Sensor | Position | Function |
+| --- | --- | --- |
+| Primary Runout Sensor | Above CW2 Extruder | Pauses prints immediately upon spool exhaustion |
+| Post-Cutter Sensor | Below Filament Cutter | Confirms complete material cut and retraction for multi-material tool changes |
+| Beacon Eddy-Current Probe | Adjacent to Nozzle | High-speed non-contact magnetic surface mapping and input-shaping accelerometer |
+
+<div align="center">
+
+| Sensor CAD Layout | Installed Sensor Array |
+| :---: | :---: |
+| <img src="images/toolhead-sensor-render.jpg" alt="ZeroG toolhead sensor render" width="100%"> | <img src="images/toolhead-sensor-photo.jpg" alt="ZeroG toolhead sensor" width="100%"> |
+
+</div>
+
+---
+
+<div align="center">
+
+Designed and built by **[Angelo James Demetroulakos](https://github.com/AloeVeraZ)** · **[3D Printer Lab](../)**
+
+</div>

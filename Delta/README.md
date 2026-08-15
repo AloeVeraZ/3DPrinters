@@ -1,67 +1,96 @@
+<div align="center">
+
 # Delta 3D Printer
 
-<p>
+### High-speed delta kinematic machine with closed-loop steppers and CPAP toolhead cooling
+
+[![Status](https://img.shields.io/badge/Status-Completed_%2F_Retired-f57c00?style=flat-square)](#project-overview)
+[![Firmware](https://img.shields.io/badge/Firmware-Klipper-6f42c1?style=flat-square&logo=klipper&logoColor=white)](code/)
+[![Motion](https://img.shields.io/badge/Motion-Closed_Loop_Delta-0a7f5a?style=flat-square)](#closed-loop-stepper-motors)
+[![Cooling](https://img.shields.io/badge/Cooling-Remote_CPAP-0078d4?style=flat-square)](#cpap-cooling-system)
+[![Parent](https://img.shields.io/badge/Lab-3D_Printer_Lab-111111?style=flat-square)](../)
+
+<p align="center">
   <img src="images/cover-front.jpg" alt="Delta 3D printer front view" width="49%">
   <img src="images/cover-side.jpg" alt="Delta 3D printer side view" width="49%">
 </p>
 
-[Browse the printer configurations and macros](code/)
+An experimental high-speed delta 3D printer built on a modified TEVO Little Monster chassis featuring three generations of custom lightweight toolheads.
 
-## Overview
+[Project Overview](#project-overview) | [Effector Evolution](#effector-evolution) | [CPAP Cooling](#cpap-cooling-system) | [Closed-Loop Motion](#closed-loop-stepper-motors) | [Configurations](code/) | [Back to Lab](../)
 
-Over the summer of 2023, I came up with an idea for a 3D printer: a delta-based machine with closed-loop stepper motors and an effector (delta toolhead) with extremely rapid cooling. This combination could produce extremely fast, consistent, and accurate parts.
+</div>
 
-The primary issue with a system like this is the complexity of building and programming a delta machine. This style of 3D printer does not use conventional X, Y, and Z axes. Instead, it uses three arms attached to three vertical posts arranged in a triangle. The printer arms can only move vertically, so the three arms move the effector through X, Y, and Z by moving independently. The machine prints within a circular build volume to maximize the surface area the toolhead can reach.
+---
 
-The printer reused the frame, power supply, and solid-state relay for the 110 V bed heater from a pre-existing TEVO Little Monster. I created a custom effector, installed NEMA 17 closed-loop stepper motors, and added a touchscreen and belt tensioners to enable accurate prints without visual issues.
+## Project Overview
 
-**Status:** This project is finished and the printer has been scrapped.
+Built during the summer of 2023, this machine explored the limits of non-planar delta kinematics. By pairing encoder-feedback closed-loop NEMA 17 steppers with a high-flow remote-blower toolhead, the goal was rapid acceleration and artifact-free extrusion.
 
-## Effector V1
+| Machine Specification | Configuration & Details |
+| --- | --- |
+| Kinematic type | Non-Cartesian parallel 3-arm delta |
+| Base chassis | Modified TEVO Little Monster aluminum extrusion frame |
+| Build volume | Circular heated bed, ~340 mm diameter × 500 mm height |
+| Motion drive | NEMA 17 closed-loop stepper motors with magnetic encoder feedback |
+| Part cooling | Off-gantry remote 12V/24V CPAP high-static-pressure blower |
+| Control & firmware | Klipper on Linux with KlipperScreen TFT35 interface |
+| Bed heating | 110 V AC silicone heater switched via solid-state relay (SSR) |
+| Current status | Fully tested, documented, and retired |
 
-The first effector design was a proof of concept to test whether a Bowden extruder would be optimal despite the very long filament path. Because this style of printer needs as little weight as possible on the effector, a Bowden setup seemed best because it removed the extruder's weight from the effector.
+## Effector Evolution
 
-However, the long Bowden tube reduced control over the filament because of friction within the tube. This led to inconsistent extrusion and print artifacts. The 5015 fan also had trouble blowing consistent air through the duct because of the curves in the design. The next design therefore used a direct-drive extruder and a more powerful part-cooling fan.
+### 01 / Effector V1 (Bowden Test)
 
-<p>
+The initial version prioritized minimum moving mass by employing a long Bowden tube and a 5015 blower fan.
+
+<p align="center">
   <img src="images/effector-v1-render.jpg" alt="Effector V1 CAD render" width="49%">
   <img src="images/effector-v1-alt-render.jpg" alt="Alternate Effector V1 CAD render" width="49%">
 </p>
 
-## CPAP fan
+- **Limitation:** Bowden tube friction caused excessive hysteresis and retraction lag. Curved ducting restricted airflow from the 5015 fan.
 
-Instead of mounting a fan on the printer's toolhead, a CPAP blower was mounted to the back of the printer and used a hose to route airflow to the part-cooling ducts. This lowered the effector's weight and freed space because no fan needed to be installed directly on it.
+---
 
-<p>
-  <img src="images/effector-photo.jpg" alt="Delta effector" width="49%">
-  <img src="images/printer-photo.jpg" alt="Delta printer and CPAP cooling system" width="49%">
-</p>
+### 02 / Effector V2 (Integrated Direct-Drive)
 
-## Effector V2
+Integrated a high-flow direct-drive extruder, high-wattage melt zone, and auto bed-leveling probe mount directly into the effector frame.
 
-The new effector integrated the part-cooling ducts, hotend mount, extruder mount, and bed-leveling probe mount into one part. It supported an automatic bed-leveling probe for calibrating the printer arms, the toolhead's minimum position, and the flatness of the bed.
-
-A direct-drive extruder improved extrusion consistency. A new hotend provided a higher flow rate and faster heating through a more efficient heater, larger melt zone, and bigger nozzle. I also added a CPAP fan to the printer frame and a hose attachment on the hotend.
-
-These upgrades improved print quality, but the effector probe produced inconsistent readings because it was offset from the nozzle. The integrated fan ducts also failed to cool parts properly because they did not concentrate airflow at the nozzle tip.
-
-<p>
+<p align="center">
   <img src="images/effector-v2-render.jpg" alt="Effector V2 CAD render" width="49%">
   <img src="images/effector-v2-assembly.jpg" alt="Effector V2 assembly" width="49%">
 </p>
 
-## Effector V3
+- **Limitation:** Offset bed probe suffered from tilt errors during calibration. Airflow was insufficiently focused at the nozzle orifice.
 
-For the third effector, I kept the same parts apart from the probe and changed how everything was mounted. I moved the hotend to the bottom of the effector and placed the extruder slightly above it, lowering the system's center of gravity. I also used new fan ducts that concentrated air at the nozzle tip for consistent airflow.
+---
 
-The new probe is a membrane switch that attaches to the nozzle tip, allowing the printer to probe with the nozzle. It is installed whenever calibration is needed and removed afterward.
+### 03 / Effector V3 (Lowered Center of Mass)
 
-## Closed-loop stepper motors
+Inverted the hotend mounting to lower the center of gravity and integrated precision 360° ring ducts. Replaced the offset probe with a removable nozzle-contact membrane switch for true zero-offset bed probing.
 
-Closed-loop stepper motors use an encoder to track the shaft's absolute position, turning the motor into a servo-like system. This allows the printer to run more smoothly, produce less resonance than ordinary stepper motors, and avoid lost steps.
+## CPAP Cooling System
 
-I bolted these motors into the existing NEMA 17 stepper-motor plates. In this build, each motor's PCB interacts with a stepper driver that powers it. The driver mimics an A4988 to receive commands from the motherboard, while the PCB sends information to the motor and uses the encoder to verify the shaft position.
+Moving the part-cooling blower off the effector entirely eliminated reciprocating toolhead mass. A high-pressure CPAP blower mounted to the upper frame delivers high-velocity air through a flexible silicone hose directly into the toolhead nozzles.
 
-## Touchscreen interface
+<p align="center">
+  <img src="images/effector-photo.jpg" alt="Delta effector" width="49%">
+  <img src="images/printer-photo.jpg" alt="Delta printer and CPAP cooling system" width="49%">
+</p>
 
-The printer's touchscreen interface runs on a TFT35. The screen hosts KlipperScreen and provides functionality similar to the web interface used from a computer. It is bolted to the electronics box and can pivot approximately 75 degrees upward and downward. The screen frame is mounted to the existing electronics enclosure.
+## Closed-Loop Stepper Motors
+
+Each delta tower is driven by a NEMA 17 closed-loop motor with an integrated magnetic encoder. The onboard PCB compares step commands with absolute shaft rotation, correcting positional deviations in real time and completely eliminating layer shifts at high accelerations.
+
+## Touchscreen Interface
+
+A BigTreeTech TFT35 running KlipperScreen is mounted on an adjustable 75° articulated bracket on the electronics enclosure, providing complete local calibration, temperature, and macro controls.
+
+---
+
+<div align="center">
+
+Designed and built by **[Angelo James Demetroulakos](https://github.com/AloeVeraZ)** · **[3D Printer Lab](../)**
+
+</div>

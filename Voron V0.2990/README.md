@@ -1,85 +1,112 @@
+<div align="center">
+
 # Voron V0.2990
 
-<img src="images/cover.jpg" alt="Voron V0.2990">
+### High-speed Voron V0.2R1 with custom high-flow toolhead, active filtration, and modular electronics
 
-[Browse the Fly Gemini V3 and BTT M8P configurations and OrcaSlicer profile](code/)
+[![Status](https://img.shields.io/badge/Status-Complete-22c55e?style=flat-square)](#project-overview)
+[![Firmware](https://img.shields.io/badge/Firmware-Klipper-6f42c1?style=flat-square&logo=klipper&logoColor=white)](code/)
+[![Slicer](https://img.shields.io/badge/Slicer-OrcaSlicer-0078d4?style=flat-square)](code/)
+[![Serial](https://img.shields.io/badge/Voron_Registry-V0.2990-f57c00?style=flat-square)](https://vorondesign.com/)
+[![Parent](https://img.shields.io/badge/Lab-3D_Printer_Lab-111111?style=flat-square)](../)
 
-## Overview
+<picture>
+  <img src="images/cover.jpg" alt="Voron V0.2990" width="820" draggable="false">
+</picture>
 
-Ever since I began researching 3D printing during my sophomore year of high school, I wanted to build a Voron 3D printer. These machines intrigued me because of the ethos of the organization that creates them. Each machine is unique because there is no official kit: the builder sources all of the parts from a bill of materials and assembles the machine from CAD renderings and a manual.
+A serialized, heavily upgraded Voron V0.2R1 CoreXY platform tuned for 225–350 mm/s print speeds and 650 mm/s travel moves.
 
-After finishing the machine, I quickly noticed bottlenecks in the system. I added a series of modifications—most of which I designed—to push the printer further. They are documented below.
+[Project Overview](#project-overview) | [Custom Toolhead](#custom-toolhead) | [Chamber Systems](#auxiliary-cooling-fan) | [Electronics & Mounting](#electronics-din-rail-mount) | [Configurations](code/) | [Back to Lab](../)
 
-**Status:** This project is finished.
+</div>
 
-## Custom toolhead
+---
 
-The motion system was created for speed, so this printer can move much faster than most machines. An average 3D printer may print around 50–100 mm/s and travel at up to roughly 300 mm/s without issues. On this machine, I reached approximately 225–350 mm/s printing speed and 650 mm/s travel movement without problems.
+## Project Overview
 
-Although the machine could move extremely fast, the plastic was not melting quickly enough and caused clogs. To solve this, I created a toolhead using a different extruder and a hotend with a larger melt zone. The extruder can supply more current to the stepper motor without excessive heat, and its higher gear ratio provides a better grip on the filament. The hotend increases flow through a larger heat zone and a nozzle that expands the internal contact surface while providing a larger exit for the filament.
+Sourced from raw components according to the Voron design manual, V0.2990 was extensively customized to eliminate thermal and mechanical bottlenecks. The modifications below enable high-volumetric-flow printing in enclosed engineering materials.
 
-Together, these changes produced a major increase in flow rate and allowed the printer to lay down layers at speeds beyond what the unmodified motion system could practically achieve. The toolhead frame is completely 3D printed.
+| Machine Specification | Configuration & Details |
+| --- | --- |
+| Kinematic type | CoreXY enclosed micro-format |
+| Build volume | 120 × 120 × 120 mm |
+| Print speeds | 225–350 mm/s print velocity, 650 mm/s rapid travel |
+| Motherboards | Fly Gemini V3 & BigTreeTech M8P configurations |
+| Toolhead | Custom lightweight 3D-printed direct-drive assembly |
+| Filtration & air | Activated carbon recirculation filter + 12032 auxiliary bed fan |
+| User interface | BTT Mini12864 LCD screen + web interface webcam stream |
+| Serial registration | V0.2990 |
 
-<img src="images/custom-toolhead-render.jpg" alt="Custom Voron toolhead CAD render">
+## Custom Toolhead
 
-## Auxiliary cooling fan
+To support high travel speeds without volumetric starvation, a custom direct-drive toolhead was engineered with an enlarged melt zone hotend and high-torque geared extruder. The assembly increases filament grip and thermal transfer while maintaining low moving mass.
 
-The auxiliary fan provides extra part cooling without adding weight to the gantry. This allows the printer to use a lighter toolhead because larger, heavier fans are not needed on the moving assembly. The fan is a 12032 grille fan.
+<div align="center">
+  <img src="images/custom-toolhead-render.jpg" alt="Custom Voron toolhead CAD render" width="700">
+</div>
 
-<img src="images/auxiliary-cooling.jpg" alt="Voron auxiliary cooling fan">
+## Auxiliary Cooling Fan
 
-## Active carbon filter
+A high-output 12032 grille fan mounted adjacent to the bed provides supplementary cross-flow part cooling for high-speed overhangs without burdening the gantry with heavy blower fans.
 
-The carbon filter allows volatile organic compounds released by hazardous filaments to bind to the carbon inside the filter. A 5015 blower directs chamber air through the filter.
+<div align="center">
+  <img src="images/auxiliary-cooling.jpg" alt="Voron auxiliary cooling fan" width="700">
+</div>
 
-<img src="images/carbon-filter.jpg" alt="Voron active carbon filter">
+## Active Carbon Filter
 
-## Chamber temperature sensor
+An onboard Nevermore-style chamber circulation system pulls internal air through activated carbon pellets using a 5015 blower, capturing styrene and VOC emissions when printing ABS/ASA filaments.
 
-I reused a spare thermistor from a previous hotend and designed a mount that positions it at the top of the printer's internal frame for accurate chamber-temperature readings.
+<div align="center">
+  <img src="images/carbon-filter.jpg" alt="Voron active carbon filter" width="700">
+</div>
 
-<img src="images/chamber-sensor.jpg" alt="Voron chamber temperature sensor">
+## Sensors & Monitoring
 
-## Camera mount and AI integration
+| System | Component | Purpose |
+| --- | --- | --- |
+| Chamber thermistor | Reclaimed NTC 100K probe | Positioned at frame apex for accurate enclosed temperature tracking |
+| AI Camera Mount | Internal USB camera | Integrates with web interface for automated timelapse and failure detection |
+| Filament monitor | Dual encoder/switch sensor | Tracks presence and real-time feed rate to catch jams and runouts |
 
-Because I cannot constantly babysit the printer, I added a camera to the machine and integrated its stream into the web interface. An open-source script uses the camera to record prints, create timelapses and photos, and automatically pause a print if it detects a failure.
+<div align="center">
 
-<img src="images/camera-mount.jpg" alt="Voron camera mount">
+| Chamber Temperature Sensor | Camera Mount & AI Integration | Filament Runout Sensor |
+| :---: | :---: | :---: |
+| <img src="images/chamber-sensor.jpg" alt="Voron chamber temperature sensor" width="100%"> | <img src="images/camera-mount.jpg" alt="Voron camera mount" width="100%"> | <img src="images/filament-runout-sensor.jpg" alt="Voron filament runout sensor" width="100%"> |
 
-## Filament runout sensor
+</div>
 
-The filament runout sensor prevents user error when estimating whether a spool contains enough material to finish a print. The pre-made sensor uses an encoder and limit switch to determine whether filament is present and feeding into the extruder at the expected rate. It is mounted on the back of the printer above the rear door.
+## Enclosure & Serviceability
 
-<img src="images/filament-runout-sensor.jpg" alt="Voron filament runout sensor">
+- **Reinforced Door Hinges:** Modified from Leiwandizer's design to utilize M3 heat-set inserts as load-bearing pivot pins.
+- **Smoked Acrylic & Diffused RGB:** Integrated side-panel lighting for optimal contrast on camera streams.
+- **Mini12864 V2.0 Screen Bracket:** Custom under-door enclosure mount for quick physical menu navigation.
 
-## Semi-custom RGB panels and hinges
+<div align="center">
 
-After approximately 200 print hours, the 3D-printed hinges on the front door snapped. I modified a design by [Leiwandizer](https://www.printables.com/model/306742-voron-v0-door-hinges/files) by enlarging the internal holes for longer M3 heat-set inserts. These hinges use the bolt as the pivot point instead of as the rotating surface.
+| RGB Panel Design | Assembled RGB Panel | Mini12864 Display Mount |
+| :---: | :---: | :---: |
+| <img src="images/rgb-panel-design.jpg" alt="Voron RGB panel design" width="100%"> | <img src="images/rgb-panel.jpg" alt="Voron RGB panel" width="100%"> | <img src="images/screen-mount.jpg" alt="Voron Mini12864 screen mount" width="100%"> |
 
-I also created clips that fit over the edges of the new doors and cover the sharp panel edges. The same hinge modification was copied to the back of the machine for easier electronics access. During this upgrade, I replaced one side panel with smoked acrylic and installed an RGB panel behind it to diffuse the light, making the printer chamber more visible on camera.
+</div>
 
-<p>
-  <img src="images/rgb-panel-design.jpg" alt="Voron RGB panel design" width="49%">
-  <img src="images/rgb-panel.jpg" alt="Voron RGB panel" width="49%">
-</p>
+## Electronics DIN Rail Mount
 
-## Mini12864 V2.0 screen mount
+A custom rear-extrusion DIN rail bracket secures non-standard motherboards and stepper drivers. A hinged rear service door with a dedicated Noctua cooling fan enables rapid electronics access without dismantling the frame.
 
-The printer's original screen was extremely small and difficult to use, so I replaced it with a larger, programmable Mini12864 LCD. I designed a completely 3D-printed mount that places the display at the bottom of the machine under the front door.
+<div align="center">
 
-<img src="images/screen-mount.jpg" alt="Voron Mini12864 screen mount">
+| DIN Rail CAD Render | Electronics Bay Layout | Hinged Rear Service Door |
+| :---: | :---: | :---: |
+| <img src="images/din-rail-render.jpg" alt="Voron DIN rail mount render" width="100%"> | <img src="images/electronics-bay.jpg" alt="Voron electronics bay" width="100%"> | <img src="images/back-door.jpg" alt="Voron electronics bay back door" width="100%"> |
 
-## Electronics DIN rail mount
+</div>
 
-The replacement motherboard did not have the same form factor as the original, so the mounting holes in the acrylic electronics plate were incompatible. I created a DIN rail mount that bolts the rail between the rear frame extrusions through a 3D-printed adapter. A second printed mount attaches to the motherboard and slots onto the rail.
+---
 
-<p>
-  <img src="images/din-rail-render.jpg" alt="Voron DIN rail mount render" width="49%">
-  <img src="images/electronics-bay.jpg" alt="Voron electronics bay" width="49%">
-</p>
+<div align="center">
 
-## Back door
+Built, modified, and tuned by **[Angelo James Demetroulakos](https://github.com/AloeVeraZ)** · **[3D Printer Lab](../)**
 
-Because I frequently modify this machine, I made a hinged back door that provides access to the electronics bay without unbolting the entire panel. The door incorporates a Noctua fan for motherboard cooling, a small 3D-printed frame, and the hinges.
-
-<img src="images/back-door.jpg" alt="Voron electronics bay back door">
+</div>

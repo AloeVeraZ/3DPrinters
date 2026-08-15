@@ -4,16 +4,14 @@
 
 ### Custom machines · tuned firmware · documented builds
 
-<p>
-  <img alt="Klipper" src="https://img.shields.io/badge/firmware-Klipper-E74C3C?style=for-the-badge&logoColor=white&labelColor=A93226">
-  <img alt="OrcaSlicer" src="https://img.shields.io/badge/slicer-OrcaSlicer-00AEEF?style=for-the-badge&logoColor=white&labelColor=0369A1">
-  <img alt="Featured builds" src="https://img.shields.io/badge/featured_builds-3-8B5CF6?style=for-the-badge&logoColor=white&labelColor=6D28D9">
-  <img alt="CC BY 4.0 license" src="https://img.shields.io/badge/license-CC_BY_4.0-F59E0B?style=for-the-badge&logoColor=white&labelColor=B45309">
-</p>
+[![Firmware](https://img.shields.io/badge/Firmware-Klipper-e74c3c?style=flat-square&logoColor=white)](https://www.klipper3d.org/)
+[![Slicer](https://img.shields.io/badge/Slicer-OrcaSlicer-00aeef?style=flat-square&logoColor=white)](https://github.com/SoftFever/OrcaSlicer)
+[![Featured Builds](https://img.shields.io/badge/Featured_Builds-3_Machines-8b5cf6?style=flat-square&logoColor=white)](#featured-machines)
+[![License](https://img.shields.io/badge/License-CC_BY_4.0-f59e0b?style=flat-square&logoColor=white)](LICENSE)
 
 Firmware configurations, slicer profiles, build history, and original photography from a collection of heavily modified and custom-built 3D printers.
 
-**[Explore the builds](#featured-machines) · [Browse every configuration](#configuration-library) · [Read the license](#license--attribution)**
+[Explore the Builds](#featured-machines) | [Configuration Library](#configuration-library) | [Usage Warnings](#before-using-a-configuration) | [License & Attribution](#license--attribution)
 
 </div>
 
