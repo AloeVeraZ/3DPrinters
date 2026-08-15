@@ -17,6 +17,7 @@
 
 An experimental high-speed delta 3D printer built on a modified TEVO Little Monster chassis featuring three generations of custom lightweight toolheads.
 
+<strong>Quick navigation:</strong><br>
 [Project Overview](#project-overview) | [Effector Evolution](#effector-evolution) | [CPAP Cooling](#cpap-cooling-system) | [Closed-Loop Motion](#closed-loop-stepper-motors) | [Configurations](code/) | [Back to Lab](../)
 
 </div>
@@ -86,11 +87,3 @@ Each delta tower is driven by a NEMA 17 closed-loop motor with an integrated mag
 ## Touchscreen Interface
 
 A BigTreeTech TFT35 running KlipperScreen is mounted on an adjustable 75° articulated bracket on the electronics enclosure, providing complete local calibration, temperature, and macro controls.
-
----
-
-<div align="center">
-
-Designed and built by **[Angelo James Demetroulakos](https://github.com/AloeVeraZ)** · **[3D Printer Lab](../)**
-
-</div>

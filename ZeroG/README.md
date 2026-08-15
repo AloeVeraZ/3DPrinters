@@ -16,6 +16,7 @@
 
 A custom large-format Mercury/Hydra CoreXY machine engineered for dimensional consistency, sensor-rich toolhead monitoring, and automated bed calibration.
 
+<strong>Quick navigation:</strong><br>
 [Project Overview](#project-overview) | [Motion & Bed Tramming](#corexy-motion-system) | [Filametrix Toolhead](#modernized-toolhead) | [Sensor Stack](#toolhead-sensors) | [Configurations](code/) | [Back to Lab](../)
 
 </div>
@@ -88,13 +89,5 @@ The toolhead is based on the [Filametrix](https://github.com/sorted01/Filametrix
 | Sensor CAD Layout | Installed Sensor Array |
 | :---: | :---: |
 | <img src="images/toolhead-sensor-render.jpg" alt="ZeroG toolhead sensor render" width="100%"> | <img src="images/toolhead-sensor-photo.jpg" alt="ZeroG toolhead sensor" width="100%"> |
-
-</div>
-
----
-
-<div align="center">
-
-Designed and built by **[Angelo James Demetroulakos](https://github.com/AloeVeraZ)** · **[3D Printer Lab](../)**
 
 </div>

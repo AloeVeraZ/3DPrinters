@@ -11,6 +11,7 @@
 
 Firmware configurations, slicer profiles, build history, and original photography from a collection of heavily modified and custom-built 3D printers.
 
+<strong>Quick navigation:</strong><br>
 [Explore the Builds](#featured-machines) | [Configuration Library](#configuration-library) | [Usage Warnings](#before-using-a-configuration) | [License & Attribution](#license--attribution)
 
 </div>
@@ -150,11 +151,3 @@ Suggested attribution:
 > **3D Printer Projects** by [AloeVeraZ](https://github.com/AloeVeraZ), licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Changes were made to the original material.
 
 If you redistribute the work unchanged, remove the final sentence. Third-party projects, trademarks, and linked resources remain the property of their respective owners.
-
----
-
-<div align="center">
-
-Built, modified, tuned, photographed, and documented by **[AloeVeraZ](https://github.com/AloeVeraZ)**.
-
-</div>

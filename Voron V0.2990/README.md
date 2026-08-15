@@ -16,6 +16,7 @@
 
 A serialized, heavily upgraded Voron V0.2R1 CoreXY platform tuned for 225–350 mm/s print speeds and 650 mm/s travel moves.
 
+<strong>Quick navigation:</strong><br>
 [Project Overview](#project-overview) | [Custom Toolhead](#custom-toolhead) | [Chamber Systems](#auxiliary-cooling-fan) | [Electronics & Mounting](#electronics-din-rail-mount) | [Configurations](code/) | [Back to Lab](../)
 
 </div>
@@ -100,13 +101,5 @@ A custom rear-extrusion DIN rail bracket secures non-standard motherboards and s
 | DIN Rail CAD Render | Electronics Bay Layout | Hinged Rear Service Door |
 | :---: | :---: | :---: |
 | <img src="images/din-rail-render.jpg" alt="Voron DIN rail mount render" width="100%"> | <img src="images/electronics-bay.jpg" alt="Voron electronics bay" width="100%"> | <img src="images/back-door.jpg" alt="Voron electronics bay back door" width="100%"> |
-
-</div>
-
----
-
-<div align="center">
-
-Built, modified, and tuned by **[Angelo James Demetroulakos](https://github.com/AloeVeraZ)** · **[3D Printer Lab](../)**
 
 </div>
